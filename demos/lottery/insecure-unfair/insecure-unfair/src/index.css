@@ -1,0 +1,104 @@
+.profile-img {
+	width: 40px;
+	border-radius: 50%;
+	margin-right: 5px;
+    margin-top: -2px;
+}
+
+.nav-center {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.form-control {
+	border-radius: 0;
+    border-width: 1px 0 0 0;
+}
+
+.card:focus-within {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.guess:focus {
+	box-shadow: none;
+	border: 1px solid #ced4da
+}
+
+.game {
+	background: #eee;
+	padding: 30px 10px;
+	border-radius: 6px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 30px;
+}
+
+
+.play-button {
+	position: absolute;
+	right: 20px;
+	top: 380px;
+}
+
+.card-win {
+	box-shadow: 0 0 0 0.2rem rgba(0,255,123,.25);
+}
+
+.card-lose {
+	box-shadow: 0 0 0 0.2rem rgba(212,44,44,.25);
+}
+
+.card {
+	display: inline-block;
+	position: relative;
+	width: 7rem;
+    height: 9rem;
+    overflow: hidden;
+}
+
+.card input {
+	position: absolute;
+	bottom: 0;
+}
+
+.card-body {
+	position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 35px;
+}
+
+.result {
+	font-size: 40px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#profile {
+  font-size: 30px;
+}
+
+.card-fw, .card-fw .card-body {
+	width: 100%;
+	height: auto;
+	position: static;
+	display: block;
+}
+
+.card-fw {	
+	margin-bottom: 8px;
+}
+
+.card1:hover {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.10), 0 4px 10px rgba(0,0,0,0.10);
+}
