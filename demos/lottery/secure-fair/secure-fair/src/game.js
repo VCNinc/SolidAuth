@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Redirect } from 'react-router-dom';
-import ReactTimeout from 'react-timeout';
 
 class Card extends Component {
   render() {
@@ -58,10 +57,21 @@ class Game extends Component {
     this.state = {
       balance: 100.00,
       results: ["?", "?", "?", "?", "?"],
+      nextResults: [],
       colors: [0, 0, 0, 0, 0],
       redirect: -1
     }
     this.playGame = this.playGame.bind(this);
+
+    var digit = this.props.match.params.digit;
+    var randoms = [];
+    for (var i = 0; i < 5; i++) {
+      var rand = Math.trunc(Math.random() * 10);
+      randoms.push(rand);
+    }
+    this.setState({
+      nextResults: randoms
+    });
   }
 
   redir(digit) {
@@ -93,10 +103,15 @@ class Game extends Component {
       console.log(cards);
 
       var colors = [0, 0, 0, 0, 0];
-      for (var i = 0; i < digit; i++) {
+      this.setState({
+        results: this.state.nextResults
+      });
+      for (var i = 0; i < 5; i++) {
         var rand = Math.trunc(Math.random() * 10);
         randoms.push(rand);
-        
+      }
+
+      for (var i = 0; i < digit; i++) {
         if (guesses[i].value == rand) {
           colors[i] = 1;
         } else {
@@ -175,6 +190,29 @@ class Game extends Component {
       }
     }
 
+    var code = [];
+    var qrlink = "";
+    for (var i = 0; i < this.props.match.params.digit; i++) {
+      qrlink += this.state.results[i];
+      qrlink += ";";
+    }
+    qrlink = qrlink.substring(0, qrlink.length - 1);
+
+    qrlink = "https://auth.solidsecurity.co/proof.php?keys=" + qrlink;
+    console.log(qrlink);
+
+
+    if (this.state.results[0] != "?") {
+      code.push(
+        <div class="card card-fw card1">
+          <div class="card-body">
+            <h5 class="card-title">Proof</h5>
+            <p class="card-text"><img src={ qrlink } width="100%" /></p>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -208,6 +246,7 @@ class Game extends Component {
             </div>
 
             <div class="col-4">
+              { code }
               <div class="card card-fw card1" onClick={this.redir.bind(this, allGames[0])}>
                 <div class="card-body">
                   <h5 class="card-title">Win ${ allMoney[0] }</h5>

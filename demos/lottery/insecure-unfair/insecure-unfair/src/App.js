@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <>
-      <h1>Home Page</h1>
+      	<Redirect to="/game/5" />
       </>
     );
   }

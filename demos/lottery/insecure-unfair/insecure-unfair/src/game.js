@@ -192,7 +192,7 @@ class Game extends Component {
               <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Balance: ${this.state.balance}</button>
             </form>
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="#" class="nav-link"><img src="https://media.licdn.com/dms/image/C4D03AQE2QZVIF1ipuA/profile-displayphoto-shrink_200_200/0?e=1561593600&v=beta&t=1Y96BtTwGFnoQdgNCfuJbbesmYMrdCVgnm1WIgLboec" class="profile-img" /> Eunice Zhou</a></li>
+              <li class="nav-item"><a href="#" class="nav-link"><img src="https://media.licdn.com/dms/image/C5603AQEmSjsFrpB8KQ/profile-displayphoto-shrink_800_800/0?e=1562198400&v=beta&t=k-fOBuGYL2r8c8TzR_sjtMCzDnqnEEPpNolceCXgP-8" class="profile-img" /> Samuel Dovgin</a></li>
             </ul>
           </div>
         </nav>
